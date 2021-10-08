@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package abstracttablemodelexamle.interfaz;
+package interfaz;
+
+import interfaz.tablemodels.AlumnosTableModel;
+import logica.LogicaNegocio;
 
 /**
  *
@@ -11,11 +14,13 @@ package abstracttablemodelexamle.interfaz;
  */
 public class PantalalPrincipal extends javax.swing.JFrame {
 
+    private LogicaNegocio logicaNegocio = new LogicaNegocio();
     /**
      * Creates new form PantalalPrincipal
      */
     public PantalalPrincipal() {
         initComponents();
+        jTableAlumnos.setModel(new AlumnosTableModel(logicaNegocio.getListaAlumnos()));
     }
 
     /**
@@ -27,17 +32,40 @@ public class PantalalPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableAlumnos = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTableAlumnos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableAlumnos.setGridColor(new java.awt.Color(255, 204, 204));
+        jScrollPane1.setViewportView(jTableAlumnos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -79,5 +107,7 @@ public class PantalalPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableAlumnos;
     // End of variables declaration//GEN-END:variables
 }
